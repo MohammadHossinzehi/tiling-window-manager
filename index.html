@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiling Window Manager Simulator</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: monospace; background: #1e1e1e; color: #d4d4d4; padding: 20px; }
+    .container { max-width: 1400px; margin: 0 auto; }
+    h1 { margin-bottom: 20px; color: #4ec9b0; }
+    .controls { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    button { padding: 8px 12px; background: #007acc; color: white; border: none; cursor: pointer; border-radius: 4px; }
+    button:hover { background: #005a9e; }
+    .info { margin-bottom: 20px; padding: 10px; background: #2d2d30; border-left: 3px solid #007acc; }
+    #canvas { border: 2px solid #007acc; background: #252526; display: block; margin-top: 20px; }
+    .stats { margin-top: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .stat-item { padding: 10px; background: #2d2d30; border-radius: 4px; }
+    .stat-label { color: #8b949e; font-size: 0.9em; }
+    .stat-value { color: #4ec9b0; font-size: 1.2em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🪟 Tiling Window Manager Simulator</h1>
+    
+    <div class="info">
+      <strong>About:</strong> A dynamic tiling window manager that arranges windows using tree-based split algorithms (similar to i3, dwm, bspwm).
+      Add windows and watch how they're positioned. Press keys to navigate and split windows.
+    </div>
+    
+    <div class="controls">
+      <button onclick="addWindow()">Add Window</button>
+      <button onclick="clearAll()">Clear All</button>
+      <button onclick="toggleLayout()">Toggle Layout</button>
+      <button onclick="toggleVisualization()">Toggle Grid</button>
+    </div>
+    
+    <canvas id="canvas"></canvas>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-label">Windows</div>
+        <div class="stat-value" id="windowCount">0</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Tree Depth</div>
+        <div class="stat-value" id="treeDepth">0</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Active Split</div>
+        <div class="stat-value" id="activeSplit">Horizontal</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Layout Mode</div>
+        <div class="stat-value" id="layoutMode">BSP</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="tiling-manager.js"></script>
+</body>
+</html>
