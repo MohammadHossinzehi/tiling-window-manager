@@ -1,0 +1,12 @@
+{
+  "name": "tiling-window-manager",
+  "version": "1.0.0",
+  "description": "Dynamic tiling window manager simulator with tree-based layout algorithms",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["tiling", "window-manager", "layout", "algorithm", "visualization"],
+  "author": "",
+  "license": "MIT"
+}
